@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,10 +20,10 @@ public class UserModel {
     private UUID id;
     @Column(unique = true)
     public String username;
-
     public String name;
     public String password;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
+
 }
