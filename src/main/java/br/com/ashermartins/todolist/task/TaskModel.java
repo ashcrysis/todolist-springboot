@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,4 +30,11 @@ public class TaskModel {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
+    public void setTitle(String title) throws Exception {
+        if (title.length() > 50) {
+            throw new Exception("The title length can't me bigger than 50!");
+        }
+        this.title = title;
+
+    }
 }
